@@ -29,6 +29,8 @@ class LoginFormController: UIViewController {
 
     }
     
+    
+    
     // Когда клавиатура появляется
     @objc func keyboardWasShown(notification: Notification) {
       // Получаем размер клавиатуры
@@ -57,24 +59,56 @@ class LoginFormController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            
-            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func hideKeyboard() {
-            self.scrollView?.endEditing(true)
-        }
+        self.scrollView?.endEditing(true)
+    }
 
     override func viewDidLoad() {
-            super.viewDidLoad()
+        super.viewDidLoad()
          
-            // Жест нажатия
-            let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-            // Присваиваем его UIScrollVIew
-            scrollView?.addGestureRecognizer(hideKeyboardGesture)
+        // Жест нажатия
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        // Присваиваем его UIScrollVIew
+        scrollView?.addGestureRecognizer(hideKeyboardGesture)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        let checkOutResult = checkUserData()
+        
+        if !checkOutResult {
+            showLoginError()
         }
+        
+        return checkOutResult
+    }
+    
+    func checkUserData() -> Bool {
+        guard let login = loginInput.text,
+              let password = passwordInput.text else {return false}
+        
+        if login == "admin" && password == "123456" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func showLoginError() {
+        let alert = UIAlertController(title: "Ошибка", message: "Введены неправильные данные пользователя", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+
 
 
 }
