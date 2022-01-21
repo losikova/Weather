@@ -1,49 +1,47 @@
 //
-//  WeatherViewController.swift
+//  WeatherViewController_1.swift
 //  Weather
 //
-//  Created by Анастасия Лосикова on 16.01.2022.
+//  Created by Анастасия Лосикова on 21.01.2022.
 //
 
 import UIKit
 
-class WeatherViewController: UICollectionViewController {
+class WeatherViewController: UIViewController {
 
-    let reuseIdentifier = "WeatherCell"
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var dayPickerView: WeekDayPicker!
+    
+    let reuseIdentifier = "reuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.register(UINib(nibName: "WeatherCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
+    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! WeatherCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
     
         cell.weather.text = "-3 C"
         cell.time.text = "16.01.2022 18:00"
     
         return cell
     }
+    
+    
 }
