@@ -42,8 +42,8 @@ class MyCitiesTableViewController: UITableViewController {
             if let indexPath = allCitiesController.tableView.indexPathForSelectedRow {
                 let city = allCitiesController.cities[indexPath.row]
                 
-                if !cities.contains(city) {
-                    cities.append(city)
+                if !cities.contains(city.name) {
+                    cities.append(city.name)
                     tableView.reloadData()
                 }
             }

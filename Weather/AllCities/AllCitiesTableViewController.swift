@@ -10,10 +10,12 @@ import UIKit
 class AllCitiesTableViewController: UITableViewController {
     
     var cities = [
-        "Moscow",
-        "Vladivostok",
-        "Omsk",
-        "Saint Petersberg"
+        (name: "Moscow", emblem: UIImage(named: "MoscowEmblem")),
+        (name: "New York", emblem: UIImage(named: "NewYorkEmblem")),
+        (name: "London", emblem: UIImage(named: "LondonEmblem")),
+        (name: "Saint Petersberg", emblem: UIImage(named: "SaintPetersbergEmblem")),
+        (name: "Los Angeles", emblem: UIImage(named: "LosAngelesEmblem")),
+        (name: "Oslo", emblem: UIImage(named: "OsloEmblem"))
     ]
     let reuseIdentifier = "CityCell"
 
@@ -34,10 +36,9 @@ class AllCitiesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! AllCitiesTableViewCell
 
-        let city = cities[indexPath.row]
+        let city = self.cities[indexPath.row]
         
-        cell.cityName.text = city
-
+        cell.configure(city: city.name, emblem: city.emblem!)
         return cell
     }
 }
