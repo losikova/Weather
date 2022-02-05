@@ -17,6 +17,7 @@ class WeatherCell: UICollectionViewCell {
             self.shadowView.layer.shadowOpacity = 0.75
             self.shadowView.layer.shadowRadius = 6
             self.shadowView.backgroundColor = .clear
+            self.shadowView.layer.shadowColor = UIColor.red.cgColor
         }
     }
     @IBOutlet weak var containerView: UIView! {

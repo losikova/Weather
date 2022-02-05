@@ -55,6 +55,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3F-EI-3uG">
                                                 <rect key="frame" x="174.5" y="442" width="65" height="31"/>
+                                                <color key="tintColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Войти"/>
                                                 <connections>
@@ -130,9 +131,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="NDp-5B-Xgx"/>
                     <connections>
+                        <outlet property="authButton" destination="Y3F-EI-3uG" id="CdS-b8-ETa"/>
                         <outlet property="loginInput" destination="aD4-Zw-s9U" id="cA5-fT-nNP"/>
+                        <outlet property="loginLabel" destination="chZ-eY-sbJ" id="WNJ-5B-P2h"/>
                         <outlet property="passwordInput" destination="z2A-Of-Kc3" id="cFo-E4-vCF"/>
+                        <outlet property="passwordLabel" destination="GT6-2E-zfB" id="xi3-cp-anf"/>
                         <outlet property="scrollView" destination="Zws-lJ-cGA" id="oNR-Km-nJj"/>
+                        <outlet property="titleLabel" destination="qg6-TX-JtK" id="hqZ-IE-rPG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOV-Uu-OvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -268,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RfF-JL-9rF">
-                            <rect key="frame" x="0.0" y="110.5" width="414" height="31"/>
+                            <rect key="frame" x="0.0" y="110" width="414" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system" title="Add"/>
                             <connections>
@@ -277,14 +282,14 @@
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCityCell" id="Qx4-XA-KFS" customClass="MyCitiesTableViewCell" customModule="Weather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qx4-XA-KFS" id="P78-R9-jqq">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opV-HD-yg2">
-                                            <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
