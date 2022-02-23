@@ -20,6 +20,8 @@ class LoginFormController: UIViewController {
     
     var interactiveAnimator: UIViewPropertyAnimator!
     
+    let webService = WeatherService()
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         // Получаем текст логина
         let login = loginInput.text!
@@ -91,6 +93,8 @@ class LoginFormController: UIViewController {
         
         keyframeAnimationLabels()
         keyframeAnimationTextFields()
+        
+        webService.loadWeather(for: "Moscow")
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
