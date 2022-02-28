@@ -25,8 +25,36 @@ class WeatherService {
         
         let url = baseUrl + path
         
-        Alamofire.request(url, method: .get, parameters: params).responseJSON { responce in
-            print(responce.value)
+        Alamofire.request(url, method: .get, parameters: params).responseData { response in
+            guard let data = response.value else { return }
+            
+            let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
+            print(weather)
         }
     }
+    
+    func loadWeatherData(city: String, completion: @escaping ([Weather]) -> Void ){
+        
+        // путь для получения погоды за 5 дней
+        let path = "/data/2.5/forecast"
+        // параметры, город, единицы измерения градусы, ключ для доступа к сервису
+        let parameters: Parameters = [
+            "q": city,
+            "units": "metric",
+            "appid": apiKey
+        ]
+        
+        // составляем url из базового адреса сервиса и конкретного пути к ресурсу
+        let url = baseUrl + path
+        
+        // делаем запрос
+        Alamofire.request(url, method: .get, parameters: parameters).responseData { response in
+            guard let data = response.value else { return }
+            let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
+            
+            completion(weather)
+        }
+        
+    }
+    
 }

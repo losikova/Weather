@@ -50,6 +50,20 @@ class MyCitiesTableViewController: UITableViewController {
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showWeather" {
+            guard let weatherController = segue.destination as? WeatherViewController else {return}
+            guard let myCitiesController = segue.source as? MyCitiesTableViewController else {return}
+            if let indexPath = myCitiesController.tableView.indexPathForSelectedRow {
+                weatherController.city = myCitiesController.cities[indexPath.row]
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showWeather", sender: nil)
+    }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

@@ -273,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RfF-JL-9rF">
-                            <rect key="frame" x="0.0" y="110" width="414" height="31"/>
+                            <rect key="frame" x="0.0" y="110.5" width="414" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system" title="Add"/>
                             <connections>
@@ -282,14 +282,14 @@
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCityCell" id="Qx4-XA-KFS" customClass="MyCitiesTableViewCell" customModule="Weather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qx4-XA-KFS" id="P78-R9-jqq">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opV-HD-yg2">
-                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="374" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -304,7 +304,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cityName" destination="opV-HD-yg2" id="z1K-ju-N92"/>
-                                    <segue destination="IQ3-1n-458" kind="show" id="1yt-uM-UAn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -314,6 +313,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Cities" id="LYj-8x-Zd7"/>
+                    <connections>
+                        <segue destination="IQ3-1n-458" kind="show" identifier="showWeather" id="lSX-l8-jlC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1U-RO-OFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

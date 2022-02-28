@@ -26,6 +26,21 @@ class WeatherCell: UICollectionViewCell {
         }
     }
     
+    static let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yyyy HH.mm"
+        return df
+    }()
+    
+    func configure(whithWeather weather: Weather) {
+        let date = Date(timeIntervalSince1970: weather.date)
+        let stringDate = WeatherCell.dateFormatter.string(from: date)
+        
+        self.weather.text = String(weather.temp)
+        time.text = stringDate
+        icon.image = UIImage(named: weather.weatherIcon)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

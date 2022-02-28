@@ -13,7 +13,7 @@ class AllCitiesTableViewController: UITableViewController {
         (name: "Moscow", emblem: UIImage(named: "MoscowEmblem")),
         (name: "New York", emblem: UIImage(named: "NewYorkEmblem")),
         (name: "London", emblem: UIImage(named: "LondonEmblem")),
-        (name: "Saint Petersberg", emblem: UIImage(named: "SaintPetersbergEmblem")),
+        (name: "Saint Petersburg", emblem: UIImage(named: "SaintPetersbergEmblem")),
         (name: "Los Angeles", emblem: UIImage(named: "LosAngelesEmblem")),
         (name: "Oslo", emblem: UIImage(named: "OsloEmblem"))
     ]
